@@ -40,7 +40,7 @@
               <div class="flex flex-column p3">
                 <div class="h3"><%= color %></div>
                 <% if(colorData.rgb) { %>
-                <div class="h5 grey">rgb(<%= colorData.rgb.r %>, <%= colorData.rgb.g %>, <%= colorData.rgb.b %>)</div>
+                <div class="h5 grey">rgb(<%= colorData.rgb[0] %>, <%= colorData.rgb[1] %>, <%= colorData.rgb[2] %>)</div>
                 <% } %>
               </div>
               <a href="#" class="p3 h2"><%= colorData.count %></a>
