@@ -1,8 +1,89 @@
-body {
-  padding: 50px;
-  font: 14px sans-serif;
+/* General
+--------------------------------------------- */
+html {
+  height: 100%;
+  margin: 0;
+  font-size: 62.5%; // 1rem = 10px
 }
 
-a {
-  color: #00B7FF;
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  // Better text rendering
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
 }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+/* Composition
+--------------------------------------------- */
+.min-h100vh { min-height: 100vh; }
+
+/* Heading
+--------------------------------------------- */
+.h1 { font-size: 3.2rem; }
+.h2 { font-size: 2.8rem; }
+.h3 { font-size: 2.4rem; }
+.h4 { font-size: 1.6rem; }
+.h5 { font-size: 1.4rem; }
+.h6 { font-size: 1.2rem; }
+
+/* Color
+--------------------------------------------- */
+.grey { color: grey !important; }
+.black { color: black !important; }
+
+/* Container
+--------------------------------------------- */
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Link
+--------------------------------------------- */
+a:link,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: grey;
+}
+
+a:hover,
+a:active{
+  color: black;
+}
+
+/* Input
+--------------------------------------------- */
+input[type="file"] { display: none; }
+
+.label-upload {
+  color: grey;
+  cursor: pointer;
+}
+
+.label-upload:hover {
+  color: black;
+  border: 2px solid black;
+}
+
+/* Misc
+--------------------------------------------- */
+.transition { transition: all 0.15s ease 0s; }
