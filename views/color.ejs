@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title> Outler </title>
+    <title> Outler | Color </title>
     <!-- Basscss -->
     <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
     <!-- Lato -->
@@ -16,6 +16,7 @@
       <div class="flex justify-between items-center">
         <a href="/" class="transition black h3">Outler</a>
         <div class="flex">
+          <a href="/" class="transition ml3">New File</a>
           <a href="/color" class="transition ml3 black">Color Book</a>
           <a href="/similarity" class="transition ml3">Similarity</a>
         </div>
@@ -28,23 +29,25 @@
       <div class="center h4 italic grey">
         There are
         <span class="bold h4 black"><%= colors.size %></span>
-        different colors used in your file
+        different
+        <span class="underline">colors</span>
+         used in your file
       </div>
 
-      <div class="flex flex-wrap">
-      <% colors.forEach(function(count, color) { %>
-        <!-- Color Card -->
-        <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
-          <div class="card-color" style="background-color: <%= color %>"></div>
-          <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
-              <div class="flex flex-column p3">
-                <div class="h3"><%= color %></div>
-                <div class="h5 grey">rgba(255,0,0,1)</div>
-              </div>
-              <a href="#" class="p3 h2"><%= count %></a>
+      <div class="flex flex-wrap mt2">
+        <% colors.forEach(function(count, color) { %>
+          <!-- Color Card -->
+          <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
+            <div class="card-color" style="background-color: <%= color %>"></div>
+            <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
+                <div class="flex flex-column p3">
+                  <div class="h3"><%= color %></div>
+                  <div class="h5 grey">rgba(255,0,0,1)</div>
+                </div>
+                <a href="#" class="p3 h2"><%= count %></a>
+            </div>
           </div>
-        </div>
-      <% }); %>
+        <% }); %>
       </div>
     </div>
 

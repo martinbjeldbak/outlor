@@ -3,7 +3,7 @@
 html {
   height: 100%;
   margin: 0;
-  font-size: 62.5%; // 1rem = 10px
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
 body {
@@ -13,7 +13,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   box-sizing: border-box;
-  // Better text rendering
+  /* Better text rendering */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,6 +39,8 @@ body {
 .h5 { font-size: 1.4rem; }
 .h6 { font-size: 1.2rem; }
 
+
+
 /* Color
 --------------------------------------------- */
 .grey { color: grey !important; }
@@ -58,6 +60,7 @@ a:hover,
 a:active,
 a:visited {
   text-decoration: none;
+  transition: all 0.15s ease 0s;
 }
 
 a:link,
@@ -83,12 +86,22 @@ a:active{
   border-radius: 2px;
 }
 
+/* Group
+--------------------------------------------- */
+.group-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
+}
+
 /* Card
 --------------------------------------------- */
 .card-color {
   width: 100%;
   padding-bottom: 100%;
-  border-radius: 2px 2px 0 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
 }
 
 .card-info {
@@ -97,6 +110,10 @@ a:active{
   bottom: 0;
   background-color: white;
   border-radius: 2px;
+}
+
+.card-info:hover {
+  transform: translateX(-5px);
 }
 
 /* Misc
