@@ -1,4 +1,5 @@
 var fs = require('fs');
+var hexRgb = require('hex-rgb');
 
 export default function colorCounter(filePath) {
   var cssParser = require('css');
@@ -11,7 +12,15 @@ export default function colorCounter(filePath) {
     rule['declarations'].forEach(function(declaration) {
       if(!(declaration['property'] == 'color')) return;
 
-      colors.set(declaration['value'], (colors.get(declaration['value']) || 0) + 1)
+      if(declaration['value'].includes('important')) {
+        declaration['value'] = declaration['value'].replace('!important', '')
+      }
+
+      if(declaration['value'].includes('#')) {
+        colors.set(declaration['value'], { rgb: hexRgb(declaration['value']),
+                                           count: (colors.get(declaration['value']) || {count: 0}).count + 1
+        })
+      }
     });
 
   });
