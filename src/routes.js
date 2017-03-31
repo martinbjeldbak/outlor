@@ -12,7 +12,12 @@ routes.get('/', (req, res) => {
 
 routes.get('/color', (req, res) => {
   let colors = colorCounter('public/assets/site-6d400c95.css')
-  res.render('color', { title: 'Color', colors: colors });
+
+  let a = [];
+  for(var x of colors) a.push(x);
+  a.sort(function(x, y) { return y[1]-  x[1]; });
+
+  res.render('color', { title: 'Color', colors: new Map(a) });
 });
 
 routes.get('/similarity', (req, res) => {
