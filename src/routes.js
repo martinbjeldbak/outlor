@@ -15,7 +15,9 @@ routes.get('/color', (req, res) => {
 
   let a = [];
   for(var x of colors) a.push(x);
-  a.sort(function(x, y) { return y[1]-  x[1]; });
+  a.sort(function(x, y) { return y[1].count -  x[1].count; });
+
+  console.log(colors)
 
   res.render('color', { title: 'Color', colors: new Map(a) });
 });

@@ -32,16 +32,18 @@
       </div>
 
       <div class="flex flex-wrap">
-      <% colors.forEach(function(count, color) { %>
+      <% colors.forEach(function(colorData, color) { %>
         <!-- Color Card -->
         <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
           <div class="card-color" style="background-color: <%= color %>"></div>
           <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
               <div class="flex flex-column p3">
                 <div class="h3"><%= color %></div>
-                <div class="h5 grey">rgba(255,0,0,1)</div>
+                <% if(colorData.rgb) { %>
+                <div class="h5 grey">rgb(<%= colorData.rgb.r %>, <%= colorData.rgb.g %>, <%= colorData.rgb.b %>)</div>
+                <% } %>
               </div>
-              <a href="#" class="p3 h2"><%= count %></a>
+              <a href="#" class="p3 h2"><%= colorData.count %></a>
           </div>
         </div>
       <% }); %>
