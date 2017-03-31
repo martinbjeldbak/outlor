@@ -18,11 +18,13 @@ routes.get('/color', (req, res) => {
   for(var x of colors) a.push(x);
   a.sort(function(x, y) { return y[1].count -  x[1].count; });
 
-  res.render('color', { title: 'Color', colors: new Map(a) });
+  // console.log(colors)
+
+  res.render('color', { title: 'Color', colors: new Map(a), query: req._parsedOriginalUrl.query });
 });
 
 routes.get('/similarity', (req, res) => {
-  res.render('similarity', { title: 'Similarity' });
+  res.render('similarity', { title: 'Similarity', query: req._parsedOriginalUrl.query });
 });
 
 routes.get('/list', (req, res) => {
