@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import colorCounter from './color_counter';
 
 const routes = Router();
 
@@ -10,7 +11,8 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/color', (req, res) => {
-  res.render('color', { title: 'Color' });
+  let colors = colorCounter('public/assets/site-6d400c95.css')
+  res.render('color', { title: 'Color', colors: colors });
 });
 
 routes.get('/similarity', (req, res) => {

@@ -27,22 +27,24 @@
       <!-- Summary -->
       <div class="center h4 italic grey">
         There are
-        <span class="bold h4 black">100</span>
+        <span class="bold h4 black"><%= colors.size %></span>
         different colors used in your file
       </div>
 
       <div class="flex flex-wrap">
+      <% colors.forEach(function(count, color) { %>
         <!-- Color Card -->
         <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
-          <div class="card-color" style="background-color: red"></div>
+          <div class="card-color" style="background-color: <%= color %>"></div>
           <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
               <div class="flex flex-column p3">
-                <div class="h3">#FF0000</div>
+                <div class="h3"><%= color %></div>
                 <div class="h5 grey">rgba(255,0,0,1)</div>
               </div>
-              <a href="#" class="p3 h2">32</a>
+              <a href="#" class="p3 h2"><%= count %></a>
           </div>
         </div>
+      <% }); %>
       </div>
     </div>
 
