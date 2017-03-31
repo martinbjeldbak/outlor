@@ -72,8 +72,6 @@ a:active{
 
 /* Input
 --------------------------------------------- */
-input[type="file"] { display: none; }
-
 .label-upload {
   color: grey;
   cursor: pointer;
@@ -82,8 +80,28 @@ input[type="file"] { display: none; }
 .label-upload:hover {
   color: black;
   border: 2px solid black;
+  border-radius: 2px;
+}
+
+/* Card
+--------------------------------------------- */
+.card-color {
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 2px 2px 0 0;
+}
+
+.card-info {
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+  background-color: white;
+  border-radius: 2px;
 }
 
 /* Misc
 --------------------------------------------- */
 .transition { transition: all 0.15s ease 0s; }
+.relative { position: relative; }
+.shadow { box-shadow: 0 1px 1px 0 rgba(0,0,0,0.15); }
+.shadow-hover:hover { box-shadow: 0 1px 6px 0 rgba(0,0,0,0.15); }

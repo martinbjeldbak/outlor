@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title> Outler </title>
+    <!-- Basscss -->
+    <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+    <!-- Lato -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <!-- main.css -->
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+  </head>
+
+  <body class="flex flex-column min-h100vh">
+
+    <!-- Nav -->
+    <div class="container mx-auto p2">
+      <div class="flex justify-between items-center">
+        <a href="/" class="transition black h3">Outler</a>
+        <div class="flex">
+          <a href="/color" class="transition ml3 black">Color Book</a>
+          <a href="/similarity" class="transition ml3">Similarity</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color Book -->
+    <div class="flex-auto container mx-auto p2 py4">
+      <!-- Summary -->
+      <div class="center h4 italic grey">
+        There are
+        <span class="bold h4 black">100</span>
+        different colors used in your file
+      </div>
+
+      <div class="flex flex-wrap">
+        <!-- Color Card -->
+        <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
+          <div class="card-color" style="background-color: red"></div>
+          <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
+              <div class="flex flex-column p3">
+                <div class="h3">#FF0000</div>
+                <div class="h5 grey">rgba(255,0,0,1)</div>
+              </div>
+              <a href="#" class="p3 h2">32</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container mx-auto p2 flex justify-center">
+      <div class="grey h5">Created by Martin and Lennon</div>
+    </div>
+
+  </body>
+</html>
