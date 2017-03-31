@@ -1,12 +1,12 @@
 {
-  "name": "express-babel",
+  "name": "outler",
   "version": "1.0.0",
-  "description": "Using latest JavaScript features on the server",
+  "description": "Scan pages for colors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmasto/express-babel.git"
+    "url": "https://github.com/martinbjeldbak/outler.git"
   },
-  "author": "Vassilis Mastorostergios <vmasto@gmail.com>",
+  "author": "Lennon & DenMartin",
   "license": "MIT",
   "main": "dist/index.js",
   "engines": {
