@@ -11,6 +11,10 @@ export default function colorCounter(filePath) {
     rule['declarations'].forEach(function(declaration) {
       if(!(declaration['property'] == 'color')) return;
 
+      if(declaration['value'].includes('important')) {
+        declaration['value'] = declaration['value'].replace('!important', '')
+      }
+
       colors.set(declaration['value'], (colors.get(declaration['value']) || 0) + 1)
     });
 
