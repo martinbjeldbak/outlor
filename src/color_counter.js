@@ -12,15 +12,16 @@ export default function colorCounter(filePath) {
     rule['declarations'].forEach(function(declaration) {
       if(!(declaration['property'] == 'color')) return;
 
-      declaration['value'] = declaration['value'].trim();
-
       if(declaration['value'].includes('important')) {
         declaration['value'] = declaration['value'].replace('!important', '')
       }
 
-        colors.set(declaration['value'], { rgb: hexRgb(declaration['value']),
-                                           count: (colors.get(declaration['value']) || {count: 0}).count + 1
-        })
+      declaration['value'] = declaration['value'].trim();
+
+
+      colors.set(declaration['value'], { rgb: hexRgb(declaration['value']),
+        count: (colors.get(declaration['value']) || {count: 0}).count + 1
+      })
     });
 
   });
