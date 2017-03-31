@@ -20,8 +20,14 @@
 
     <!-- Upload -->
     <div class="flex-auto container mx-auto p2 flex flex-column justify-center items-center">
+    <form ref='uploadForm' 
+      id='uploadForm' 
+      action='/upload' 
+      method='post' 
+      encType="multipart/form-data">
       <label class="label-upload h3 transition p4" for="upload">Upload your .css file here</label>
-      <input type="file" name="upload" id="upload" class="display-none" />
+      <input type="file" name="css" id="upload" class="display-none" onchange="this.form.submit();" />
+      </form>
     </div>
 
     <!-- Footer -->
