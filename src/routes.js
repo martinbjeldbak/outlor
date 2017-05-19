@@ -12,11 +12,11 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/color', (req, res) => {
-  let colors = colorCounter(req.query.file)
+  const colors = colorCounter(req.query.file);
 
-  let a = [];
-  for(var x of colors) a.push(x);
-  a.sort(function(x, y) { return y[1].count -  x[1].count; });
+  const a = [];
+  for (const x of colors) a.push(x);
+  a.sort((x, y) => y[1].count - x[1].count);
 
   // console.log(colors)
 
@@ -31,12 +31,11 @@ routes.get('/list', (req, res) => {
   res.render('list', { title: 'List' });
 });
 
-routes.post('/upload', function(req, res) {
+routes.post('/upload', (req, res) => {
   console.log(req.files);
-  if (!req.files)
-    return res.status(400).send('No files were uploaded.');
+  if (!req.files) { return res.status(400).send('No files were uploaded.'); }
 
-  res.redirect('/color?file=' + encodeURIComponent(req.files.css.file))
+  res.redirect(`/color?file=${encodeURIComponent(req.files.css.file)}`);
 });
 
 
