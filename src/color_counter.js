@@ -1,28 +1,31 @@
-import fs from 'fs';
 import hexRgb from 'hex-rgb';
 import cssParser from 'css';
 
-export default function colorCounter(filePath) {
-  const colors = new Map();
-  const ast = cssParser.parse(fs.readFileSync(filePath, 'utf8'), { source: filePath });
+export default function colorCounter(file) {
+  const data = new Map();
+  const ast = cssParser.parse(file);
 
   ast.stylesheet.rules.forEach((rule) => {
-    if (rule.declarations == undefined) return;
+    if (rule.declarations === undefined) return;
 
     rule.declarations.forEach((declaration) => {
       if (!(declaration.property === 'color')) return;
 
-      if (declaration.value.includes('important')) {
-        declaration.value = declaration.value.replace('!important', '');
+      let value = declaration.value;
+
+      if (value.includes('important')) {
+        value = value.replace('!important', '');
       }
 
-      declaration.value = declaration.value.trim();
+      value = value.trim();
 
-      colors.set(declaration.value, { rgb: hexRgb(declaration.value),
-        count: (colors.get(declaration.value) || { count: 0 }).count + 1,
+      data.set(value, {
+        rgb: hexRgb(value),
+        count: (data.get(value) || { count: 0 }).count + 1,
+        selectors: (data.get('selectors') || []).concat(rule.selectors),
       });
     });
   });
 
-  return colors;
+  return data;
 }

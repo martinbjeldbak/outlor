@@ -1,18 +1,17 @@
+import fs from 'fs';
 import { Router } from 'express';
 import colorCounter from './color_counter';
 
 const routes = Router();
 
-
-/**
- * GET home page
- */
 routes.get('/', (req, res) => {
   res.render('index', { title: 'Outler' });
 });
 
 routes.get('/color', (req, res) => {
-  const colors = colorCounter(req.query.file);
+  const file = req.query.file;
+  const colors = colorCounter(fs.readFileSync(file, 'utf8'), { source: file });
+  console.log(colors);
 
   const a = [];
   for (const x of colors) a.push(x);
@@ -32,7 +31,6 @@ routes.get('/list', (req, res) => {
 });
 
 routes.post('/upload', (req, res) => {
-  console.log(req.files);
   if (!req.files) { return res.status(400).send('No files were uploaded.'); }
 
   res.redirect(`/color?file=${encodeURIComponent(req.files.css.file)}`);
