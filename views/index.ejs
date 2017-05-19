@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title> Outler </title>
+    <title> Outlor </title>
     <!-- Basscss -->
     <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
     <!-- Lato -->
@@ -19,15 +19,25 @@
     </div>
 
     <!-- Upload -->
-    <div class="flex-auto container mx-auto p2 flex flex-column justify-center items-center">
-    <form ref='uploadForm' 
-      id='uploadForm' 
-      action='/upload' 
-      method='post' 
+    <!-- <div class="flex-auto container mx-auto p2 flex flex-column justify-center items-center">
+    <form ref='uploadForm'
+      id='uploadForm'
+      action='/upload'
+      method='post'
       encType="multipart/form-data">
       <label class="label-upload h3 transition p4" for="upload">Upload your .css file here</label>
       <input type="file" name="css" id="upload" class="display-none" onchange="this.form.submit();" />
       </form>
+    </div>-->
+
+    <!-- Url Input -->
+    <div class="flex-auto container mx-auto flex flex-column justify-center items-center">
+      <form class="sm-min-w500px mx-auto">
+        <div class="flex flex-column">
+          <input type="text" placeholder="https://" class="input-text-url transition">
+          <input type="submit" value="Go Outlor!" class="input-sumbit-url items-center mt4 transition">
+        </div>
+      </button>
     </div>
 
     <!-- Footer -->
