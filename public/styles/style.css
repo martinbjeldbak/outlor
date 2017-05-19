@@ -26,9 +26,15 @@ body {
   box-sizing: inherit;
 }
 
+*:focus {
+  outline: none;
+}
+
 /* Composition
 --------------------------------------------- */
 .min-h100vh { min-height: 100vh; }
+
+.min-w500px { min-width: 500px; }
 
 /* Heading
 --------------------------------------------- */
@@ -85,6 +91,37 @@ a:active{
   color: black;
   border: 2px solid black;
   border-radius: 2px;
+}
+
+/* Input - URL
+--------------------------------------------- */
+.input-text-url {
+  width: 100%;
+  font-size: 2.2rem;
+  border: none;
+  border-bottom: 2px solid grey;
+  padding: 2rem;
+}
+
+.input-text-url:hover {
+  border-bottom: 2px solid black;
+}
+
+.input-sumbit-url {
+  font-size: 1.8rem;
+  appearance: none;
+  border: none;
+  padding: 2rem;
+  border: 2px solid transparent;
+  background-color: transparent;
+  display: inline-block;
+  color: grey;
+  cursor: pointer;
+}
+
+.input-sumbit-url:hover {
+  color: black;
+  border: 2px solid black;
 }
 
 /* Group
