@@ -34,7 +34,10 @@ body {
 --------------------------------------------- */
 .min-h100vh { min-height: 100vh; }
 
-.min-w500px { min-width: 500px; }
+@media screen and (min-width: 500px) {
+  .sm-min-w500px { min-width: 500px; }
+}
+
 
 /* Heading
 --------------------------------------------- */
@@ -103,7 +106,8 @@ a:active{
   padding: 2rem;
 }
 
-.input-text-url:hover {
+.input-text-url:hover,
+.input-text-url:focus {
   border-bottom: 2px solid black;
 }
 
