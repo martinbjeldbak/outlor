@@ -1,25 +1,55 @@
-import fs from 'fs';
+import jsdom from 'jsdom';
+import request from 'request';
+import cheerio from 'cheerio';
 import { Router } from 'express';
 import colorCounter from './color_counter';
 
 const routes = Router();
+const { JSDOM }  = jsdom;
 
 routes.get('/', (req, res) => {
   res.render('index', { title: 'Outler' });
 });
 
 routes.get('/color', (req, res) => {
-  const file = req.query.file;
-  const colors = colorCounter(fs.readFileSync(file, 'utf8'), { source: file });
-  console.log(colors);
+  const url = 'https://senzacarta.com.au';
 
-  const a = [];
-  for (const x of colors) a.push(x);
-  a.sort((x, y) => y[1].count - x[1].count);
+  request(url, function (error, response, body) {
+    const $ = cheerio.load(body)
+    const styleSheetHref = $('link[rel="stylesheet"]').attr('href');
+
+    request(url + styleSheetHref, function(error, response, body) {
+      const data = colorCounter(body)
+
+      data.forEach((value, key, map) => {
+        console.log(value.selectors);
+        value.selectors.forEach((selector) => {
+          try  {
+            // console.log("looking up ", selector);
+            const $element = $(selector)
+            console.log('Found with color', value.rgb)
+            console.log($element.text())
+          }
+          catch(err) {
+            // console.log("Got error", err.message);
+          }
+        });
+      });
+    });
+  });
+
+
+
+  // const file = req.query.file;
+  // const colors = colorCounter(urlBody);
+  // console.log(colors);
+
+  // const a = [];
+  // for (const x of colors) a.push(x);
+  // a.sort((x, y) => y[1].count - x[1].count);
 
   // console.log(colors)
 
-  res.render('color', { title: 'Color', colors: new Map(a), query: req._parsedOriginalUrl.query });
 });
 
 routes.get('/similarity', (req, res) => {

@@ -26,14 +26,17 @@
     "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.1.11",
     "body-parser": "^1.17.0",
+    "cheerio": "^0.22.0",
     "css": "^2.2.1",
     "ejs": "^2.5.6",
     "express": "^4.15.0",
     "express-busboy": "^6.0.1",
     "express-fileupload": "^0.1.2",
     "hex-rgb": "^1.0.0",
+    "jsdom": "^10.1.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta11",
+    "request": "^2.81.0",
     "rimraf": "^2.6.1"
   },
   "devDependencies": {
