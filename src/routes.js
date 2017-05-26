@@ -12,29 +12,34 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/color', (req, res) => {
-  const url = 'https://senzacarta.com.au';
+  const url = req.query.url;
+  console.log("URL");
+  console.log(url);
 
   request(url, function (error, response, body) {
     const $ = cheerio.load(body)
     const styleSheetHref = $('link[rel="stylesheet"]').attr('href');
+    console.log(url + styleSheetHref);
 
     request(url + styleSheetHref, function(error, response, body) {
+      console.log("body");
+      console.log(body);
       const data = colorCounter(body)
 
       data.forEach((value, key, map) => {
-        console.log(value.selectors);
         value.selectors.forEach((selector) => {
           try  {
             // console.log("looking up ", selector);
             const $element = $(selector)
-            console.log('Found with color', value.rgb)
-            console.log($element.text())
+            // console.log('Found with color', value.rgb)
+            // console.log($element.text())
           }
           catch(err) {
-            // console.log("Got error", err.message);
+            console.log("Got error", err.message);
           }
         });
       });
+      res.render('color', { title: 'Color', colors: data, query: req._parsedOriginalUrl.query });
     });
   });
 
@@ -60,11 +65,14 @@ routes.get('/list', (req, res) => {
   res.render('list', { title: 'List' });
 });
 
-routes.post('/upload', (req, res) => {
-  if (!req.files) { return res.status(400).send('No files were uploaded.'); }
+// routes.post('/upload', (req, res) => {
 
-  res.redirect(`/color?file=${encodeURIComponent(req.files.css.file)}`);
-});
+//   console.log("asdf");
+//   console.log(req.body);
+//   if (!req.files) { return res.status(400).send('No files were uploaded.'); }
+
+//   res.redirect(`/color?file=${encodeURIComponent(req.files.css.file)}`);
+// });
 
 
 export default routes;

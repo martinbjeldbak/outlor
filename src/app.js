@@ -24,7 +24,7 @@ app.use(logger('dev', {
   skip: () => app.get('env') === 'test',
 }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Routes
