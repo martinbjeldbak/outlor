@@ -52,8 +52,10 @@ body {
 
 /* Color
 --------------------------------------------- */
-.grey { color: grey !important; }
-.black { color: black !important; }
+.grey { color: grey; }
+.grey-dark { color: #585858; }
+.black { color: black; }
+.black-hover:hover { color: black; }
 
 /* Container
 --------------------------------------------- */
@@ -157,6 +159,10 @@ a:active{
 .card-color:hover ~ .card-info,
 .card-info:hover {
   transform: translateX(-5px);
+}
+
+.card-color:hover ~ .card-info > .flex > .card-color-code {
+  color: black !important;
 }
 
 /* Misc
