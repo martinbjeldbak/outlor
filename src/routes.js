@@ -18,13 +18,13 @@ routes.get('/color', (req, res) => {
 
   request(url, function (error, response, body) {
     const $ = cheerio.load(body)
-    const styleSheetHref = $('link[rel="stylesheet"]').attr('href');
-    console.log(url + styleSheetHref);
+    let styleSheetHref = $('link[rel="stylesheet"]').attr('href');
+    if (!styleSheetHref.includes('https://')) {
+      styleSheetHref = url + styleSheetHref;
+    }
 
-    request(url + styleSheetHref, function(error, response, body) {
-      console.log("body");
-      console.log(body);
-      const data = colorCounter(body)
+    request(styleSheetHref, function(error, response, body) {
+      const data = colorCounter(body);
 
       data.forEach((value, key, map) => {
         value.selectors.forEach((selector) => {
@@ -39,7 +39,11 @@ routes.get('/color', (req, res) => {
           }
         });
       });
-      res.render('color', { title: 'Color', colors: data, query: req._parsedOriginalUrl.query });
+
+      let a = [];
+      for(var x of data) a.push(x);
+      a.sort(function(x, y) { return y[1].count -  x[1].count; });
+      res.render('color', { title: 'Color', colors: new Map(a), query: req._parsedOriginalUrl.query });
     });
   });
 
@@ -56,6 +60,12 @@ routes.get('/color', (req, res) => {
   // console.log(colors)
 
 });
+
+routes.get('/info', (req, res) => {
+  const url = req.query.url
+  const color = req.query.color
+  res.render('info');
+})
 
 routes.get('/similarity', (req, res) => {
   res.render('similarity', { title: 'Similarity', query: req._parsedOriginalUrl.query });
