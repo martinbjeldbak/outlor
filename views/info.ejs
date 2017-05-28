@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title> Outlor | Similarity </title>
+    <!-- Basscss -->
+    <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+    <!-- Lato -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <!-- main.css -->
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+  </head>
+
+   <body class="flex flex-column min-h100vh">
+    <!-- Nav -->
+    <div class="container mx-auto p2">
+      <div class="flex justify-between items-center">
+        <a href="/" class="transition h3">Outlor</a>
+        <div class="flex">
+          <a href="/" class="transition ml3">New File</a>
+          <a href="/color?<%= query %>" class="transition ml3">Color Book</a>
+          <a href="/similarity=<%= query %>" class="transition ml3 black">Similarity</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-auto container mx-auto p2 py4">
+      <!-- Summary -->
+      <div class="center h4 italic grey">
+        There are
+        <span class="bold h4 black">23</span>
+        <span class="underline">elements</span>
+        using the current color.
+      </div>
+
+
+      <div class="flex flex-wrap mt2">
+        <div class="lg-col-3 px4">
+          < back
+        </div>
+      </div>
+
+      <div class="flex flex-wrap mt2">
+        <div class="lg-col-3 p4 relative">
+          <div class="card-color" style="background-color: #f1f1f1"></div>
+          <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
+            <div class="flex flex-column p3">
+              <div class="h3">#f1f1f1</div>
+              <div class="h5 grey">rgba(255,0,0,1)</div>
+            </div>
+            <a href="#" class="p3 h2">12</a>
+          </div>
+        </div>
+
+        <div class="lg-col-9">
+        </div>
+      </div>
+
+    </div>
+
+
+
+   </body>
+</html>
