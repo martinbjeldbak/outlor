@@ -26,6 +26,7 @@ app.use(logger('dev', {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/js', express.static(path.join(__dirname, '../node_modules/clipboard/dist')));
 
 // Routes
 app.use('/', routes);
