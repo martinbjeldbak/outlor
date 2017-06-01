@@ -1,6 +1,11 @@
 # Outlor
-Quickly analyze colours used in .css files. Helpful for designers who are quickly prototyping and
-end up using different shades of the same base colour.
+
+### What is Outlor
+Outlor does cool things with CSS and DOM elements with your url.
+
+### Features
+* Quickly grab colours code used in the site.
+* Helpful for designers who are quickly prototyping and end up using different shades of the same base colour.
 
 ![Sorted color usage grouping](https://cloud.githubusercontent.com/assets/823316/24634372/f4b8acd4-1910-11e7-93a5-c82c4aa3e36f.png)
 
@@ -55,7 +60,7 @@ yarn run lint
 
 ### Environmental variables in development
 
-The project uses [dotenv](https://www.npmjs.com/package/dotenv) for setting environmental variables during development. Simply copy `.env.example`, rename it to `.env` and add your env vars as you see fit. 
+The project uses [dotenv](https://www.npmjs.com/package/dotenv) for setting environmental variables during development. Simply copy `.env.example`, rename it to `.env` and add your env vars as you see fit.
 
 It is **strongly** recommended **never** to check in your .env file to version control. It should only include environment-specific values such as database passwords or API keys used in development. Your production env variables should be different and be set differently depending on your hosting solution. `dotenv` is only for development.
 
@@ -67,7 +72,7 @@ Deployment is specific to hosting platform/provider but generally:
 yarn run build
 ```
 
-will compile your src into `/dist`, and 
+will compile your src into `/dist`, and
 
 ```sh
 yarn start
