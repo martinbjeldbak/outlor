@@ -130,20 +130,19 @@ a:active{
   border: 2px solid black;
 }
 
-/* Group
---------------------------------------------- */
-.group-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
-}
-
 /* Card - Color
 --------------------------------------------- */
 .card-color {
   width: 100%;
   padding-bottom: 100%;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
+}
+
+.group-color,
+.card-color-small {
+  width: 20px;
+  height: 20px;
   border-radius: 2px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
 }
@@ -163,6 +162,19 @@ a:active{
 
 .card-color:hover ~ .card-info > .flex > .card-color-code {
   color: black !important;
+}
+
+/* Flash Message
+--------------------------------------------- */
+.flash-message {
+  position: fixed;
+  float: right;
+  border-radius: 2px;
+  right: 0;
+  background-color: white;
+  z-index: 1;
+  margin-top: -20px;
+  margin-right: -2px;
 }
 
 /* Misc
