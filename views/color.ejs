@@ -12,7 +12,7 @@
   <body class="flex flex-column min-h100vh">
 
     <!-- Nav -->
-    <div class="container mx-auto p2">
+    <div class="container mx-auto p2 mt2">
       <div class="flex justify-between items-center">
         <a href="/" class="transition h3">Outlor</a>
         <div class="flex">
@@ -26,10 +26,13 @@
     <div class="flex-auto container mx-auto p2 py4 relative">
 
       <!-- flash message -->
-      <div class="flash-message p3 flex shadow shadow-hover cursor-pointer">
+      <div id="flash-message-wrapper">
+      </div>
+
+<!--       <div id="flash-message" class="flash-message p3 flex shadow shadow-hover cursor-pointer">
         <div class="card-color-small" style="background-color: #f1f1f1"></div>
         <div class="flash-message-text italic ml2">rgba(255,255,255) has been copied</div>
-      </div>
+      </div> -->
 
       <!-- Summary -->
       <div class="center h4 italic grey">
@@ -79,6 +82,7 @@
   <script>
     // copy color code
     function copyColorCode(value) {
+      // copy the color code
       var node = document.createElement('input');
       node.value = value;
       document.body.appendChild(node);
@@ -86,7 +90,33 @@
       document.execCommand('copy');
       document.body.removeChild(node);
 
+      // show flash message
       console.log(value + ' has been copied');
+
+      var flash_message_wrapper = document.getElementById("flash-message-wrapper");
+
+      while (flash_message_wrapper.firstChild) {
+        flash_message_wrapper.removeChild(flash_message_wrapper.firstChild);
+      }
+
+      var flash_message = document.createElement('div');
+      flash_message.className += "flash-message p3 flex shadow shadow-hover cursor-pointer";
+
+      flash_message.style.opacity = "0";
+      flash_message.style.transition = "all 0.15s ease 0s";
+
+      flash_message.innerHTML = "<div class='card-color-small' style='background-color: " + value + "'></div><div class='flash-message-text italic ml2'>" + value + " copied</div>";
+
+      flash_message_wrapper.appendChild(flash_message);
+
+      setTimeout(function() {
+        flash_message.style.opacity = "1";
+      }, 100);
+
+      setTimeout(function() {
+        flash_message.style.opacity = "0";
+        flash_message_wrapper.removeChild(flash_message);
+      }, 4000);
     }
   </script>
 
