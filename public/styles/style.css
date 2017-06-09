@@ -57,6 +57,10 @@ body {
 .black { color: black; }
 .black-hover:hover { color: black; }
 
+.border-grey { border-color: grey; }
+
+.bg-grey { background-color: grey; }
+
 /* Container
 --------------------------------------------- */
 .container {
