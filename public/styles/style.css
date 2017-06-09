@@ -188,3 +188,4 @@ a:active{
 .shadow { box-shadow: 0 1px 1px 0 rgba(0,0,0,0.15); }
 .shadow-hover:hover { box-shadow: 0 1px 6px 0 rgba(0,0,0,0.15); }
 .cursor-pointer { cursor: pointer; }
+.uppercase { text-transform: uppercase; }
