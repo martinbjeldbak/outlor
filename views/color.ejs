@@ -43,46 +43,36 @@
          used.
       </div>
 
+      <% colors.forEach(function(colorData, color) { %>
+      <%= color %>
+      <%= console.log(colorData) %>
       <div class="group mt4 p2 flex grey">
         <div class="group-color bg-grey"></div>
-        <div class="italic ml2">Background Color</div>
+        <div class="italic ml2"><%= color %></div>
       </div>
-
-      <div class="group mt4 p2 flex grey">
-        <div class="group-color border-grey border"></div>
-        <div class="italic ml2">Border Color</div>
-      </div>
-
-      <div class="group mt4 p2 flex grey">
-        <div class="group-color center italic grey">f</div>
-        <div class="italic ml2">Color</div>
-      </div>
-
 
       <div class="flex flex-wrap">
-        <%= console.log(colors) %>
-
-        <% colors.forEach(function(colorData, color) { %>
-
-          <!-- Color Card -->
+      <% colorData.forEach(function(value) { %>
           <div class="col-12 sm-col-6 md-col-4 lg-col-3 p4 relative">
-            <div onclick="copyColorCode('<%= color %>')" class="card-color cursor-pointer" style="background-color: <%= color %>"></div>
+            <div onclick="copyColorCode('<%= color %>')" class="card-color cursor-pointer" style="background-color: <%= value.value %>"></div>
             <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
                 <div class="flex flex-column p3">
-                  <div class="card-color-code grey black-hover cursor-pointer h3" onclick="copyColorCode('<%= color %>')">
-                    <%= color %>
+                  <div class="card-color-code grey black-hover cursor-pointer h3" onclick="copyColorCode('<%= value.rgb %>')">
+                    <%= value.value %>
                   </div>
-                  <% if(colorData.rgb) { %>
-                    <div class="h5 grey cursor-pointer black-hover" onclick="copyColorCode('rgb(<%= colorData.rgb[0] %>, <%= colorData.rgb[1] %>, <%= colorData.rgb[2] %>)')">
-                      rgb(<%= colorData.rgb[0] %>, <%= colorData.rgb[1] %>, <%= colorData.rgb[2] %>)
+                  <% if(value.rgb) { %>
+                    <div class="h5 grey cursor-pointer black-hover" onclick="copyColorCode('rgb(<%= value.rgb[0] %>, <%= value.rgb[1] %>, <%= value.rgb[2] %>)')">
+                      rgb(<%= value.rgb[0] %>, <%= value.rgb[1] %>, <%= value.rgb[2] %>)
                     </div>
                   <% } %>
                 </div>
                 <a href="/info" class="p3 h2"><%= colorData.count %></a>
             </div>
           </div>
+          <% }); %>
+          </div>
 
-        <% }); %>
+      <% }); %>
       </div>
     </div>
 

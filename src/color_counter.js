@@ -23,6 +23,7 @@ export default function colorCounter(file) {
         rgb: hexRgb(value),
         count: (data.get(value) || { count: 0 }).count + 1,
         selectors: (data.get('selectors') || []).concat(rule.selectors),
+        declarations: (data.get('declarations') || []).concat(rule.declarations.map(x => x.property)),
       });
     });
   });

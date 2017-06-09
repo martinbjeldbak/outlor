@@ -3,6 +3,7 @@ import request from 'request';
 import cheerio from 'cheerio';
 import { Router } from 'express';
 import colorCounter from './color_counter';
+import colorDeclarations from './color_declarations';
 
 const routes = Router();
 const { JSDOM }  = jsdom;
@@ -13,8 +14,6 @@ routes.get('/', (req, res) => {
 
 routes.get('/color', (req, res) => {
   const url = req.query.url;
-  console.log("URL");
-  console.log(url);
 
   request(url, function (error, response, body) {
     const $ = cheerio.load(body)
@@ -24,26 +23,24 @@ routes.get('/color', (req, res) => {
     }
 
     request(styleSheetHref, function(error, response, body) {
-      const data = colorCounter(body);
+      const data = colorDeclarations(body);
 
       data.forEach((value, key, map) => {
-        value.selectors.forEach((selector) => {
-          try  {
-            // console.log("looking up ", selector);
-            const $element = $(selector)
-            // console.log('Found with color', value.rgb)
-            // console.log($element.text())
-          }
-          catch(err) {
-            console.log("Got error", err.message);
-          }
-        });
+        // console.log(value);
+        // value.selectors.forEach((selector) => {
+        //   try  {
+        //     // console.log("looking up ", selector);
+        //     const $element = $(selector)
+        //     // console.log('Found with color', value.rgb)
+        //     // console.log($element.text())
+        //   }
+        //   catch(err) {
+        //     console.log("Got error", err.message);
+        //   }
+        // });
       });
 
-      let a = [];
-      for(var x of data) a.push(x);
-      a.sort(function(x, y) { return y[1].count -  x[1].count; });
-      res.render('color', { title: 'Color', colors: new Map(a), query: req._parsedOriginalUrl.query });
+      res.render('color', { title: 'Color', colors: data, query: req._parsedOriginalUrl.query });
     });
   });
 
