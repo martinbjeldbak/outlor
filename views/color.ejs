@@ -57,7 +57,7 @@
             <div onclick="copyColorCode('<%= color %>')" class="card-color cursor-pointer" style="background-color: <%= value.value %>"></div>
             <div class="card-info flex flex-wrap items-center shadow shadow-hover transition">
                 <div class="flex flex-column p3">
-                  <div class="card-color-code grey black-hover cursor-pointer h3" onclick="copyColorCode('<%= value.rgb %>')">
+                  <div class="card-color-code grey black-hover cursor-pointer h3 uppercase" onclick="copyColorCode('<%= value.value %>')">
                     <%= value.value %>
                   </div>
                   <% if(value.rgb) { %>
