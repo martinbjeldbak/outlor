@@ -29,6 +29,31 @@ export default function colorDeclarations(file) {
         value = value.split(' ')
         value = value[value.length-1]
       }
+      // if value is a hexa color
+      if (value.includes('#')) {
+        // if length of value is 4 (short form of hexa code)
+        if (value.length == 4) {
+          value = value.replace('#', '');
+          value = value.split("").map((x) => x.repeat(2)).join('');
+          value = '#' + value;
+        }
+
+      } else {
+        // if value is not a hexa color
+        console.log("not a hexa color");
+
+        // color name
+
+        // rgb
+
+        // rgba
+
+        // hsl
+      }
+
+      // inherit
+
+      // transparent
 
       value = value.trim();
       console.log('ADSFDSFD');
